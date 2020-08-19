@@ -29,7 +29,10 @@ const Main = (props) => {
 
     return (
         <div className="container">
-            <SearchField />
+            <SearchField 
+                index={index} 
+                indexMax={indexMax}
+            />
             <ResultsList 
                 books={bookData} 
             />

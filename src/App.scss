@@ -29,3 +29,14 @@
     }
   }
 }
+
+.page-link {
+  color: $primary !important;
+}
+
+.pagination-btn-active {
+  .page-link {
+    background-color: $primary !important;
+    color: #fff !important;
+  }
+}

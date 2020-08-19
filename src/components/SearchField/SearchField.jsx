@@ -4,9 +4,11 @@ import { FormControl, InputGroup } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-const SearchField = ({ searchFilters }) => {
+const SearchField = ({ index, indexMax, searchFilters, updateIndex, updateIndexValue }) => {
   
     const updateTextInput = (event) => {
+        updateIndex({ index: 1 });
+        updateIndexValue({ index: 1 });
         return searchFilters(event.target.value);
     }
 
@@ -20,9 +22,6 @@ const SearchField = ({ searchFilters }) => {
             onKeyDown={updateTextInput}
         />
         <InputGroup.Append>
-          {/* <Button onClick={searchFilters(event.target.value)}>
-            Submit
-          </Button> */}
         </InputGroup.Append>
       </InputGroup>
     );

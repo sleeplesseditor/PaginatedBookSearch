@@ -14,6 +14,12 @@ const PagingBar = ({ index, indexMax, updateIndex, updateIndexValue }) => {
         updateIndexValue({ index: indexMax });
     }
 
+    const outerNextPage = () => {
+        if (index < indexMax)
+        updateIndex({ index: index + 2 });
+        updateIndexValue({ index: index + 2 });
+    }
+
     const nextPage = () => {
         if (index < indexMax)
         updateIndex({ index: ++index });
@@ -26,11 +32,29 @@ const PagingBar = ({ index, indexMax, updateIndex, updateIndexValue }) => {
         updateIndexValue({ index });
     }
 
+    const outerpreviousPage = () => {
+        if (index > 1)
+        updateIndex({ index: index - 2 });
+        updateIndexValue({ index: index - 2 });
+    }
+
     return (
       <Pagination className="justify-content-center">
         <Pagination.First onClick={firstPage}/>
         <Pagination.Prev onClick={previousPage}/>
-        <Pagination.Item active>{index}</Pagination.Item>
+        {index > 2 ? (
+            <>
+            <Pagination.Item onClick={outerpreviousPage}>{index - 2}</Pagination.Item>
+            <Pagination.Item onClick={previousPage}>{index - 1}</Pagination.Item>
+            </>
+        ) : null}
+        <Pagination.Item className="pagination-btn-active" active>{index}</Pagination.Item>
+        {index < indexMax ? (
+            <>
+            <Pagination.Item onClick={nextPage}>{index + 1}</Pagination.Item>
+            <Pagination.Item onClick={outerNextPage}>{index + 2}</Pagination.Item>
+            </>
+        ) : null}
         <Pagination.Next onClick={nextPage}/>
         <Pagination.Last onClick={lastPage}/>
       </Pagination>
