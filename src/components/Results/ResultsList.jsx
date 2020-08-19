@@ -6,7 +6,7 @@ const ResultsList = ({ books }) => {
             return ( <div>Loading...</div> );
         return (
             <ListGroup className="text-primary">
-                {books ? books.map((book) => <ListGroup.Item key={book.id}>
+                {books ? books.map((book) => <ListGroup.Item key={book.id} className="book-card">
                     <h5>{book.book_title}</h5>
                     <ul className="book-list">
                         <li>Author: {book.book_author}</li>
