@@ -51,8 +51,8 @@ const PagingBar = ({ index, indexMax, updateIndex, updateIndexValue }) => {
         <Pagination.Item className="pagination-btn-active" active>{index}</Pagination.Item>
         {index < indexMax ? (
             <>
-            <Pagination.Item onClick={nextPage}>{index + 1}</Pagination.Item>
-            <Pagination.Item onClick={outerNextPage}>{index + 2}</Pagination.Item>
+            <Pagination.Item onClick={nextPage}>{(+index) + 1}</Pagination.Item>
+            <Pagination.Item onClick={outerNextPage}>{(+index) + 2}</Pagination.Item>
             </>
         ) : null}
         <Pagination.Next onClick={nextPage}/>

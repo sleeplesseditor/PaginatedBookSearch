@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from 'react-bootstrap';
 import { FormControl, InputGroup } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
